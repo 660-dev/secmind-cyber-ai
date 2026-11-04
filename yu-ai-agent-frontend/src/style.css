@@ -1,78 +1,120 @@
+/* ========== 全局设计 Token：深空科技 / HUD 智能终端 ========== */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* 基底色 */
+  --bg-deep: #04060d;
+  --bg-base: #070b16;
+  --bg-panel: rgba(13, 20, 36, 0.72);
+  --bg-panel-solid: #0d1424;
+  --bg-input: rgba(8, 13, 26, 0.8);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* 主色（品牌青） */
+  --cyan: #00e5ff;
+  --cyan-soft: rgba(0, 229, 255, 0.65);
+  --cyan-faint: rgba(0, 229, 255, 0.16);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* 强调色 */
+  --pink: #ff3d8b;
+  --pink-soft: rgba(255, 61, 139, 0.65);
+  --pink-faint: rgba(255, 61, 139, 0.16);
+  --purple: #8b7bff;
+  --purple-soft: rgba(139, 123, 255, 0.65);
+  --purple-faint: rgba(139, 123, 255, 0.16);
+
+  /* 中性色 */
+  --text-hi: #e8f4ff;
+  --text-mid: rgba(214, 232, 255, 0.68);
+  --text-low: rgba(176, 202, 238, 0.42);
+
+  /* 线条与边框 */
+  --line-dim: rgba(0, 229, 255, 0.14);
+  --line-mid: rgba(0, 229, 255, 0.3);
+
+  /* 圆角与光晕 */
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --glow-cyan: 0 0 24px rgba(0, 229, 255, 0.25);
+  --glow-pink: 0 0 24px rgba(255, 61, 139, 0.28);
+  --glow-purple: 0 0 24px rgba(139, 123, 255, 0.28);
+
+  /* 字体 */
+  --font-display: 'Orbitron', 'Rajdhani', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'Rajdhani', 'Consolas', 'SFMono-Regular', monospace;
+  --font-body: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-a:hover {
-  color: #535bf2;
+
+html,
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text-hi);
+  background-color: var(--bg-deep);
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.card {
-  padding: 2em;
+  /* 深空基底：底部青色微光 + 顶部冷紫微光 */
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(139, 123, 255, 0.14), transparent 60%),
+    radial-gradient(1000px 700px at -10% 110%, rgba(0, 229, 255, 0.12), transparent 60%),
+    linear-gradient(180deg, #070b16 0%, #04060d 100%);
+  background-attachment: fixed;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #fff;
+}
+
+/* 霓虹滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.22);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 255, 0.45);
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 15px;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+}
+
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: 14px;
   }
 }

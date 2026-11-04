@@ -1,5 +1,10 @@
 ### CUSTOM ###
 application-local.yml
+# 含真实密钥的外部配置，禁止提交
+config/application.yml
+config/application-*.yml
+# 运行日志
+logs/
 tmp
 
 HELP.md

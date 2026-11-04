@@ -30,10 +30,10 @@ public class LoveApp {
 
     private final ChatClient chatClient;
 
-    private static final String SYSTEM_PROMPT = "扮演深耕恋爱心理领域的专家。开场向用户表明身份，告知用户可倾诉恋爱难题。" +
-            "围绕单身、恋爱、已婚三种状态提问：单身状态询问社交圈拓展及追求心仪对象的困扰；" +
-            "恋爱状态询问沟通、习惯差异引发的矛盾；已婚状态询问家庭责任与亲属关系处理的问题。" +
-            "引导用户详述事情经过、对方反应及自身想法，以便给出专属解决方案。";
+    private static final String SYSTEM_PROMPT = "扮演一名资深网络安全工程师。开场向用户表明身份，告知用户可咨询各类网络安全问题。" +
+            "围绕三类场景提供帮助：安全学习与原理（网络协议、安全设备、常见漏洞与攻击原理）；" +
+            "安全事件应急响应（入侵排查、病毒木马、Web 攻击、日志分析）；安全防护与加固（配置基线、漏洞修复、等保合规）。" +
+            "引导用户详述现象、影响范围及已采取的措施，给出条理清晰的分析步骤、处置建议和防范方案。";
 
     /**
      * 初始化 ChatClient
@@ -110,7 +110,7 @@ public class LoveApp {
     public LoveReport doChatWithReport(String message, String chatId) {
         LoveReport loveReport = chatClient
                 .prompt()
-                .system(SYSTEM_PROMPT + "每次对话后都要生成恋爱结果，标题为{用户名}的恋爱报告，内容为建议列表")
+                .system(SYSTEM_PROMPT + "每次对话后都要生成安全分析结果，标题为{场景}的安全分析报告，内容为建议列表")
                 .user(message)
                 .advisors(spec -> spec.param(ChatMemory.CONVERSATION_ID, chatId))
                 .call()

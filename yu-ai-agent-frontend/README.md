@@ -1,25 +1,28 @@
-# AI智能体应用平台前端
+# 灵盾 SecMind 前端
 
-这是一个基于Vue3开发的AI智能体应用平台，包含两个核心应用：AI恋爱大师和AI超级智能体。
+基于 Vue 3 + Vite 开发的 AI 网络安全助手前端，包含两个核心应用：AI 网络安全助手与 AI 全能助手。
 
 ## 功能特点
 
-- 💬 **AI恋爱大师**：智能情感顾问，为用户提供恋爱相关的建议和解答
-- 🤖 **AI超级智能体**：全能型AI助手，解决各类专业问题
+- **AI 网络安全助手**：以资深安全工程师身份，提供安全学习、漏洞分析、应急响应与防护加固建议
+- **AI 全能助手**：基于 ReAct 的自主规划智能体，解决各类专业问题
+- 类 ChatGPT 对话界面，SSE 流式打字机效果，支持多轮对话
+- 深色科技风、响应式布局
 
 ## 技术栈
 
-- Vue3
+- Vue 3（`<script setup>`）+ Vite
 - Vue Router
 - Axios
-- SSE (Server-Sent Events)
+- SSE（Server-Sent Events）
+- @vueuse/head
 
 ## 开发说明
 
 ### 环境要求
 
-- Node.js >= 16.0.0
-- npm >= 7.0.0
+- Node.js >= 16
+- npm >= 7
 
 ### 安装依赖
 
@@ -33,6 +36,8 @@ npm install
 npm run dev
 ```
 
+默认运行在 `http://localhost:3000`。
+
 ### 构建项目
 
 ```bash
@@ -41,15 +46,7 @@ npm run build
 
 ## 后端接口
 
-项目依赖以下后端接口：
+- `/api/ai/love_app/chat/sse` — 网络安全助手 SSE 对话接口
+- `/api/ai/manus/chat` — 全能助手对话接口
 
-- `/api/ai/love_app/chat/sse` - AI恋爱大师聊天接口
-- `/api/ai/manus/chat` - AI超级智能体聊天接口
-
-后端服务默认运行在 `http://localhost:8123`
-
-# Vue 3 + Vite
-
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+后端服务默认运行在 `http://localhost:8123`，开发环境通过 Axios 指向该地址，生产环境使用相对路径 `/api`。
