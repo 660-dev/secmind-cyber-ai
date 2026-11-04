@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 恋爱大师应用文档加载器
+ * 网络安全助手应用文档加载器
  */
 @Component
 @Slf4j
@@ -35,8 +35,8 @@ public class LoveAppDocumentLoader {
             Resource[] resources = resourcePatternResolver.getResources("classpath:document/*.md");
             for (Resource resource : resources) {
                 String filename = resource.getFilename();
-                // 提取文档倒数第 3 和第 2 个字作为标签
-                String status = filename.substring(filename.length() - 6, filename.length() - 4);
+                // 去掉 .md 扩展名，以文件名作为分类标签
+                String status = filename.substring(0, filename.length() - 3);
                 MarkdownDocumentReaderConfig config = MarkdownDocumentReaderConfig.builder()
                         .withHorizontalRuleCreateDocument(true)
                         .withIncludeCodeBlock(false)
