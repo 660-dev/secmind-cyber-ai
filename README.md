@@ -28,7 +28,7 @@ flowchart LR
 | 多轮对话记忆 | 基于 MessageWindowChatMemory 保持上下文连贯 | 已实现（内存） |
 | SSE 流式响应 | 后端 Flux 推送，前端打字机效果实时展示 | 已实现 |
 | AI 全能助手 | 基于 ReAct 的自主规划智能体，可调用工具循环执行 | 已实现 |
-| RAG 知识库 | 文档加载、切片、向量化与检索增强 | 代码已具备，待替换为安全领域文档 |
+| RAG 知识库 | 内置网络安全文档，支持加载、切片、向量化与检索增强 | 文档已就绪，启用 Advisor 后生效 |
 | 工具调用 Tool Calling | 联网搜索、文件操作、网页抓取、终端、资源下载、PDF 生成 | 代码已具备，需配置对应 API Key |
 | MCP 服务 | 图片搜索 MCP（Stdio / SSE） | 子项目已具备，需单独启动 |
 | 本地大模型 | Ollama 本地部署，降低延迟与成本、保障数据安全 | 待本地安装 Ollama |
@@ -66,7 +66,7 @@ yu-ai-agent/
 │   └── config/          # 跨域等配置
 ├── src/main/resources/
 │   ├── application.yml  # 仓库内配置（密钥用环境变量占位）
-│   └── document/        # RAG 文档（示例，待替换为安全文档）
+│   └── document/        # 网络安全 RAG 文档（应急响应/漏洞攻防/安全加固）
 ├── config/              # 外部运行配置（已 gitignore，存放真实密钥）
 ├── yu-ai-agent-frontend/   # Vue3 前端工程
 └── yu-image-search-mcp-server/  # 图片搜索 MCP 子项目
